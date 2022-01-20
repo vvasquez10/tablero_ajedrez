@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Tablero de Ajedrez</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="title">
+            <h1>Checkerboard!</h1>
+        </div>
+
+        <div class="checkerbox", style="grid-template-columns: repeat({{column}}, 1fr)">
+
+            {% for i in range(row) %}
+                {% if i%2==0 %}
+                    {% for x in range(column) %}           
+                        {% if x%2==0 %}
+                            <div class="square", style="background-color: {{color1}};"></div>
+                        {% else %}
+                            <div class="square", style="background-color: {{color2}};"></div>
+                        {% endif %}
+                    {% endfor %}
+                {% else %} 
+                    {% for y in range(column) %}           
+                        {% if y%2==0 %}
+                            <div class="square", style="background-color: {{color2}};"></div>
+                        {% else %}
+                            <div class="square", style="background-color: {{color1}};"></div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}     
+        </div>        
+    </div>    
+</body>
+</html>
